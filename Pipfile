@@ -9,6 +9,9 @@ verify_ssl = true
 flask = "*"
 requests = "*"
 beautifulsoup4 = "*"
+vadersentiment = "*"
+flask_sqlalchemy = "*"
+
 
 [requires]
 python_version = "3.7"
