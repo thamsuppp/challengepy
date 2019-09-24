@@ -38,6 +38,11 @@ A SQLite database was used to store and query the information. A login/logout sy
     ¦   +-- scraper.py                  # Functions to scrape the Penn Clubs website
     ¦   +-- sentiment.py                # Function to perform sentiment analysis
     ¦   +-- pennclubs.db                # SQLite database to store information
-    
+
+## Dependencies<a id="sec-1-2" name="sec-1-2"></a>
+
+1. flask_sqlalchemy
+2. vadersentiment
+
 
 
