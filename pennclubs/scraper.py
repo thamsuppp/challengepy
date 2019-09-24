@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup
 import requests
+import pandas as pd
 
 
 def get_html(url):
@@ -48,7 +49,8 @@ def get_clubs(soup):
     This function should return a list of soups with each soup corresponding to the html
     for a single club.
     """
-    return [] # TODO: Implement this function
+    
+    return soup.findAll('div', {'class': 'box'}) # TODO: Implement this function DONE
 
 def get_club_name(club):
     """
@@ -65,11 +67,29 @@ def get_club_description(club):
     """
     Extract club description from a soup containing a single club.
     """
-    return '' # TODO: Implement this function
+    return club.findAll('em')[0].text # TODO: Implement this function DONE
 
 def get_club_tags(club):
     """
     Get the tag labels for all tags associated with a single club.
     """
-    return [] # TODO: Implement this function
+    return list(map(lambda x: x.text, club.findAll('span', {'class': 'tag is-info is-rounded'}))) # TODO: Implement this function DONE
+
+
+
+# #Wrapper function that returns dataframe of clubs
+# def get_club_df():
+#     html = get_clubs_html()
+#     soup = soupify(html)
+#     clubs = get_clubs(soup)
+
+#     #Get club data
+#     club_names = [get_club_name(club) for club in clubs]
+#     club_descriptions = [get_club_description(club) for club in clubs]
+#     club_tags = [get_club_tags(club) for club in clubs]
+
+#     #Store in dataframe
+#     club_df = pd.DataFrame({'Name': club_names, 'Tags': club_tags, 'Description': club_descriptions})
+
+#     return club_df
 
